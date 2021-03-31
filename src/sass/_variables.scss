@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap');
+:root {
+	--color-primary:hsl(0, 0%, 63%);
+	--color-primary-dark:hsl(0, 0%, 27%);
+	--color-secondary:hsl(0, 0%, 0%);
+	--color-tertiary:hsl(0, 0%, 100%);
+	--default-size:1.2rem;
+}
+@mixin responsive($break-point){
+	@if $break-point == sm-desktop {
+		@media only screen and (max-width:68.75em){@content;}
+	}
+	@if $break-point == tablet {
+		@media only screen and (max-width:43.75em){@content;}
+	}
+	@if $break-point == phone {
+		@media only screen and (max-width: 26.5625em){@content;}
+	}
+}
