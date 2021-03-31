@@ -46,7 +46,7 @@ export const slider = () => {
 	let maxCount = slides.length;
 	const gotoSilde = (slide) => {
 		slides.forEach((el,i) => {
-			el.style.transform = `translateX(${200 * (slide - i)}%)`;
+			el.style.transform = `translateY(${200 * (slide - i)}%)`;
 		});
 	};
 	const changeCta = (count) => {
