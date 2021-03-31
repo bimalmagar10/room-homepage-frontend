@@ -1,5 +1,6 @@
 import iconClose from "../images/icon-close.svg";
 import iconHamburger from "../images/icon-hamburger.svg";
+//This is for Mobile Navigation
 export const navigationChanger = () => {
 	const navigationToggle = (event) => {
 		let element = event.target;
@@ -42,18 +43,18 @@ export const slider = () => {
         `
         ]
 	};
-	let count = 0;
-	let maxCount = slides.length;
-	const gotoSilde = (slide) => {
+	let count = 0; //Default value of count for slider
+	let maxCount = slides.length; //Number of slides to display
+	const gotoSilde = (slide) => { //Display Slides
 		slides.forEach((el,i) => {
-			el.style.transform = `translateY(${200 * (slide - i)}%)`;
+			el.style.transform = `translateX(${200 * (slide - i)}%)`;
 		});
 	};
-	const changeCta = (count) => {
+	const changeCta = (count) => { //Change CTA text and heading
 			ctaHeader.textContent = cta.header[count];
 			ctaText.textContent = cta.text[count];
 	};
-	const nextSlide = () => {
+	const nextSlide = () => { //Go to next slide
 		if(count === (maxCount - 1)){
 			count = 0;
 		} else {
@@ -62,7 +63,7 @@ export const slider = () => {
 		gotoSilde(count);
 		changeCta(count);
 	};
-	const prevSlide = (e) => {
+	const prevSlide = (e) => { //Go to previous slide
 		e.preventDefault();
 		if(count == 0){
 			count = maxCount - 1;
@@ -72,11 +73,20 @@ export const slider = () => {
 		gotoSilde(count);
 		changeCta(count);
 	};
-	const init = () => {
+	const checkKeys = (event) => { //Navigation through keyboard left and right keys
+		if(event.code === "ArrowRight"){
+			nextSlide();
+		} else if (event.code === "ArrowLeft"){
+			prevSlide(event);
+		}
+	};
+	const init = () => { //Initialization of slider
 		gotoSilde(0);
 		changeCta(0);
 	};
 	init();
+	//Event Listeners
 	nextSlideBtn.addEventListener("click",nextSlide);
 	prevSlideBtn.addEventListener("click",prevSlide);
+	document.addEventListener("keyup",checkKeys);
 };

@@ -21,9 +21,11 @@ body {
     height: 100vh;
     grid-template-columns:[front] repeat(2,[col-start] 1fr [col-end]) .4fr 1fr [back];
     grid-template-rows: 2fr .3fr 1fr;
+    overflow: hidden;
     @include responsive(tablet){
        grid-template-columns:1fr;
-       grid-template-rows: 50vh 50vh 30vh 40vh 30vh;
+       grid-template-rows: repeat(2,50vh) 30vh 40vh 30vh;
+       overflow: scroll;
 
     }
     & > * {
@@ -40,7 +42,7 @@ body {
 	@include responsive(tablet){
       grid-column: 1 / -1;
       grid-row: 1 / 2;
-
+		overflow: hidden;
     }
 	
 }
