@@ -309,5 +309,20 @@ body {
         }
 	}
 }
+.attribution {
+    display: none; 
+	@include responsive(tablet){
+	 display: block;
+     font-size: 1.4rem; text-align: center; 
+     grid-column: 1 / -1;
+     background-color: var(--color-secondary);
+     color: var(--color-tertiary);
+     padding: 2rem 0;
+    }
+}
+.attribution a { 
+      display: inline-block; 
+      color: var(--color-tertiary);
+}
 
 
